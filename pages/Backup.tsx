@@ -174,7 +174,7 @@ export default function IndexPage(): JSX.Element {
         <header
           id="home"
           className="relative h-screen flex items-center justify-center text-center bg-cover bg-center"
-          style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+          style={{ backgroundImage: `url('${basePath}/hero-bg.jpg')` }}
         >
           <div className="absolute inset-0 bg-black/60" />
           <div className="relative z-10 max-w-3xl px-6">

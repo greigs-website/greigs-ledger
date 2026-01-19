@@ -1,0 +1,200 @@
+/* =========================================================
+   1) Import Bootstrap FIRST — style grid & spacing
+   ========================================================= */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css");
+
+/* =========================================================
+   2) Then Tailwind layers (so Tailwind overrides Bootstrap)
+   ========================================================= */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   3) Custom global styles
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8fafc;
+}
+
+/* === style Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Montserrat:wght@300;400;500;700&display=swap');
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+/* === Hero Section === */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 11, 13, 0.55);
+}
+
+.typewriter-caret {
+  display: inline-block;
+  width: 1px;
+  background: currentColor;
+  margin-left: 6px;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* =========================================================
+   4) Sidebar styling (to fix Bootstrap override issue)
+   ========================================================= */
+.sidebar-link {
+  color: #e6eef0;
+  text-decoration: none;
+}
+
+.sidebar-link:hover {
+  color: #14b8a6; /* teal hover color */
+}
+
+/* =========================================================
+   5) Portfolio Section (Style)
+   ========================================================= */
+.portfolio {
+  position: relative;
+}
+
+.portfolio-box {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Force thumbnail height + cover — keep consistent across grid */
+.portfolio-img img {
+  width: 100%;
+  height: 16rem; /* matches h-64 behaviour */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(.2,.9,.2,1);
+}
+
+/* Slightly stronger zoom on hover (feel) */
+.portfolio-box:hover .portfolio-img img {
+  transform: scale(1.08);
+}
+
+/* overlay behaviour already present — ensure z-index */
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 184, 166, 0.75); /* teal tint */
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.portfolio-box:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+/* overlay text styling */
+.portfolio-overlay-details h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.portfolio-overlay-details span {
+  font-size: 0.85rem;
+  color: #f0f0f0;
+}
+
+.portfolio-overlay-details {
+  text-align: center;
+  color: #fff;
+}
+
+
+/* Magnific Popup custom styles for layout */
+.mfp-bg {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.mfp-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.ajax-container {
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.ajax-container img {
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .ajax-container .col-md-7 {
+    float: left;
+    width: 60%;
+  }
+  .ajax-container .col-md-5 {
+    float: right;
+    width: 40%;
+  }
+}
+
+/* --- Modal smooth open/close --- */
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+/* --- portfolio modal nav buttons (white translucent circle, black arrows, subtle hover) --- */
+button.bg-black\/50 {
+  background-color: rgba(255, 255, 255, 0.9) !important; /* slightly translucent white */
+  color: #000 !important; /* black arrow */
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease !important;
+  transform: none !important;
+}
+
+button.bg-black\/50:hover {
+  background-color: #e6e6e6 !important; /* soft grey hover */
+  color: #000 !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  transform: none !important; /* no bounce */
+}
+
+.swiper-pagination-bullet {
+  background: #000 !important;
+  opacity: 0.4;
+}
+.swiper-pagination-bullet-active {
+  background: #000 !important;
+  opacity: 1;
+}
